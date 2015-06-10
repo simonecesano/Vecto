@@ -8,7 +8,6 @@ use Plack::App::Proxy;
 
 use lib './lib';
 
-
 my $app = sub {
     return [
 	    '200',
