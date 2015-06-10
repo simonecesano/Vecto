@@ -8,19 +8,19 @@ use Plack::App::Proxy;
 
 use lib './lib';
 
-# my $app = sub {
-#     return [
-# 	    '200',
-# 	    [ 'Content-Type' => 'text/html' ],
-# 	    [ 42 ],
-# 	   ];
-# };
+my $app = sub {
+    return [
+	    '200',
+	    [ 'Content-Type' => 'text/html' ],
+	    [ 42 ],
+	   ];
+};
 
-# builder {
-#     $app;
-# };
+builder {
+    $app;
+};
 
-use Vecto;
+# use Vecto;
 
-my $app = Vecto->apply_default_middlewares(Vecto->psgi_app);
-$app;
+# my $app = Vecto->apply_default_middlewares(Vecto->psgi_app);
+# $app;
