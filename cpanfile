@@ -1,1 +1,1 @@
-Minion
+requires "Minion"
