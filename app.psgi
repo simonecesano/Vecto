@@ -6,6 +6,9 @@ use Plack::Builder;
 use Plack::App::File;
 use Plack::App::Proxy;
 
+use lib './lib';
+
+
 my $app = sub {
     return [
 	    '200',
