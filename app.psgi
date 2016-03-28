@@ -8,6 +8,8 @@ use Plack::App::Proxy;
 
 use Mojo::Server::PSGI;
 
+use lib './lib';
+
 builder {
     mount "/im" => builder {
 	enable 'Session', store => 'File';

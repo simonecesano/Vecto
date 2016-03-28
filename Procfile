@@ -1,0 +1,1 @@
+web: starman -MFindBin --preload-app --port \$PORT

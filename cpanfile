@@ -9,3 +9,4 @@ requires "Plack::Middleware::Session";
 requires "Plack::Session::Store::File";
 
 requires "Mojo::Server::PSGI";
+requires "Minion";
