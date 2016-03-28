@@ -6,21 +6,29 @@ use Plack::Builder;
 use Plack::App::File;
 use Plack::App::Proxy;
 
-use lib './lib';
-
-my $app = sub {
-    return [
-	    '200',
-	    [ 'Content-Type' => 'text/html' ],
-	    [ 42 ],
-	   ];
-};
+use Mojo::Server::PSGI;
 
 builder {
-    $app;
+    mount "/im" => builder {
+	enable 'Session', store => 'File';
+    	my $server = Mojo::Server::PSGI->new;
+    	$server->load_app('./im.pl');
+    	$server->to_psgi_app;
+    };
+    mount "/gs" => builder {
+	enable 'Session', store => 'File';
+    	my $server = Mojo::Server::PSGI->new;
+    	$server->load_app('./gs.pl');
+    	$server->to_psgi_app;
+    };
+    mount '/' => builder {
+	sub {
+	    return [
+		    '200',
+		    [ 'Content-Type' => 'text/html' ],
+		    [ 42 ],
+		   ];
+	};
+    };
 };
 
-# use Vecto;
-
-# my $app = Vecto->apply_default_middlewares(Vecto->psgi_app);
-# $app;

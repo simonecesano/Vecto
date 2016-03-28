@@ -5,7 +5,7 @@ requires "Plack::Runner";
 requires "Plack::Builder";
 requires "Plack::App::File";
 requires "Plack::App::Proxy";
+requires "Plack::Middleware::Session";
+requires "Plack::Session::Store::File";
 
-requires "Catalyst";
-requires "Catalyst::Runtime";
-requires "Catalyst::ScriptRunner";
+requires "Mojo::Server::PSGI";
